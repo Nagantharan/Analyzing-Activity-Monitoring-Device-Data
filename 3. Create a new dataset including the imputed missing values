@@ -1,0 +1,2 @@
+new_activity <- data
+new_activity$steps <- fillNA
