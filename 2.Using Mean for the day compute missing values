@@ -1,0 +1,11 @@
+epsAverage <- aggregate(steps ~ interval, data = data, FUN = mean)
+fillNA <- numeric()
+for (i in 1:nrow(data)) {
+    obs <- data[i, ]
+    if (is.na(obs$steps)) {
+        steps <- subset(StepsAverage, interval == obs$interval)$steps
+    } else {
+        steps <- obs$steps
+    }
+    fillNA <- c(fillNA, steps)
+}
